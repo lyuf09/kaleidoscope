@@ -52,7 +52,7 @@
   left: 0;
   width: var(--reading-progress, 0%);
   height: 2px;
-  background: var(--sage-dark);
+  background: var(--glass-blue);
 }
 .reader-shell {
   max-width: 42.5rem;

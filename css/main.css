@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;500&display=swap');
 
 :root {
-  --paper: #e8e0cd;
-  --paper-soft: #f1ebdc;
-  --paper-deep: #d8cfb9;
-  --ink: #252720;
-  --ink-soft: #575b50;
-  --sage: #78806b;
-  --sage-dark: #515b4b;
-  --sage-pale: #bcc0ac;
-  --gray: #a4a399;
-  --line: rgba(37, 39, 32, .2);
+  --paper: #ece7db;
+  --paper-soft: #f4f0e7;
+  --paper-deep: #d8d4c8;
+  --ink: #242722;
+  --ink-soft: #595d56;
+  --sage: #747c70;
+  --sage-dark: #50594f;
+  --sage-pale: #c4c8bc;
+  --glass-blue: #6f7c84;
+  --cold-gray: #9ba1a0;
+  --line: rgba(36, 39, 34, .18);
   --serif: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
-  --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --sans: "Instrument Sans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
   --gutter: clamp(1.25rem, 4vw, 4.5rem);
   --header-h: 5.25rem;
@@ -29,7 +30,8 @@ body {
 }
 a { color: inherit; }
 button { color: inherit; }
-::selection { background: var(--sage-dark); color: var(--paper-soft); }
+::selection { background: var(--glass-blue); color: var(--paper-soft); }
+:focus-visible { outline: 1px solid var(--glass-blue); outline-offset: 5px; }
 
 .site-header {
   position: fixed;
@@ -86,13 +88,16 @@ button { color: inherit; }
 .hero-wash { position: absolute; inset: -6px; }
 .hero-image {
   background: url("../assets/images/kaleidoscope-hero.png") center/cover no-repeat;
+  opacity: .72;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.18) 27%, #000 63%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.18) 27%, #000 63%);
   transform: translate3d(var(--parallax-x, 0), var(--parallax-y, 0), 0) scale(1.015);
   will-change: transform;
 }
 .hero-wash {
   background:
-    linear-gradient(90deg, rgba(232,224,205,.66) 0%, rgba(232,224,205,.22) 53%, rgba(37,39,32,.08) 100%),
-    linear-gradient(0deg, rgba(35,39,31,.1), transparent 30%);
+    linear-gradient(90deg, rgba(236,231,219,.12) 0%, rgba(236,231,219,.04) 58%, rgba(111,124,132,.08) 100%),
+    linear-gradient(0deg, rgba(36,39,34,.08), transparent 30%);
 }
 .hero-copy {
   position: absolute;
@@ -213,10 +218,23 @@ button { color: inherit; }
   position: absolute;
   inset: 0;
   opacity: 0;
-  background: linear-gradient(120deg, rgba(120,128,107,.18), rgba(232,224,205,.2));
+  background: linear-gradient(120deg, rgba(111,124,132,.13), rgba(236,231,219,.18));
   transition: opacity .35s ease;
 }
 .track:hover::before { opacity: 1; }
+.track:nth-child(2)::after,
+.track:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 0 54%;
+  background: url("../assets/images/kaleidoscope-hero.png") 78% center/cover no-repeat;
+  opacity: .1;
+  filter: grayscale(.35) contrast(.85);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
+  mask-image: linear-gradient(90deg, transparent, #000);
+}
+.track:nth-child(4)::after { opacity: .055; background-position: 18% center; }
 .track > * { position: relative; z-index: 1; }
 .track-no { align-self: start; margin: 0; font: 400 .77rem/1 var(--mono); letter-spacing: .12em; }
 .track-name h2,
@@ -248,23 +266,52 @@ button { color: inherit; }
 .track-actions a::after { content: " ]"; }
 .track-actions button:hover,
 .track-actions a:hover { background: var(--ink); color: var(--paper-soft); }
-.track-shift { background: var(--sage-pale); }
-.track-shift:hover .track-name { text-shadow: -1px 0 rgba(138,89,74,.38), 1px 0 rgba(65,91,82,.38); }
-.audio-note {
-  position: fixed;
-  z-index: 40;
-  right: var(--gutter);
-  bottom: 1.5rem;
-  padding: .85rem 1rem;
-  background: var(--ink);
-  color: var(--paper-soft);
-  font: .68rem/1.4 var(--mono);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(.75rem);
-  transition: opacity .2s ease, transform .2s ease;
+.track-actions button:disabled {
+  min-width: 11.5rem;
+  border-color: var(--line);
+  color: var(--ink-soft);
+  cursor: not-allowed;
+  opacity: .72;
 }
-.audio-note.is-visible { opacity: 1; transform: translateY(0); }
+.track-actions button:disabled:hover { background: transparent; color: var(--ink-soft); }
+.track-shift { background: color-mix(in srgb, var(--glass-blue) 14%, var(--paper-soft)); }
+.track-shift:hover .track-name { text-shadow: -1px 0 rgba(139,109,88,.34), 1px 0 rgba(111,124,132,.5); }
+.track:nth-child(n + 6) .track-name { transform: translateX(1px); }
+.track:nth-child(n + 6) { border-bottom-color: color-mix(in srgb, var(--glass-blue) 40%, transparent); }
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px var(--gutter);
+  background: var(--line);
+}
+.archive-card {
+  min-height: 24rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--paper-soft);
+}
+.archive-card p,
+.archive-card span,
+.archive-status { font: .7rem/1.4 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+.archive-card p { margin: 0; }
+.archive-card h2 { margin: auto 0; font: 500 clamp(2rem, 4vw, 4rem)/1 var(--sans); letter-spacing: -.055em; text-transform: uppercase; }
+.archive-card span { color: var(--ink-soft); }
+.archive-status { margin: 0; padding: 2.5rem var(--gutter) 6rem; color: var(--ink-soft); }
+
+.credit-list { padding: clamp(5rem, 10vw, 9rem) var(--gutter); }
+.credit-list > div {
+  display: grid;
+  grid-template-columns: minmax(16rem, 2fr) 1fr;
+  gap: 2rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(.9rem, 1.35vw, 1.15rem);
+}
+.credit-list strong { font-weight: 500; }
+.credit-list p { margin: 5rem 0 0; font: .72rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 
 @media (max-width: 760px) {
   :root { --header-h: 4.5rem; }
@@ -285,7 +332,7 @@ button { color: inherit; }
   .site-nav a { padding: .85rem 0; }
   .hero-copy { transform: translateY(-38%); }
   .hero h1 { font-size: clamp(2.6rem, 11.6vw, 4.8rem); }
-  .hero-wash { background: linear-gradient(90deg, rgba(232,224,205,.78), rgba(232,224,205,.28)); }
+  .hero-wash { background: linear-gradient(90deg, rgba(236,231,219,.72), rgba(236,231,219,.2)); }
   .page-grid { grid-template-columns: 1fr; }
   .entrance .section-index { margin-bottom: 2rem; }
   .page-intro { min-height: 54vh; gap: 3rem; }
@@ -297,6 +344,9 @@ button { color: inherit; }
   }
   .track-name { grid-column: 1 / -1; }
   .track-actions { justify-self: start; }
+  .archive-grid { grid-template-columns: 1fr; }
+  .archive-card { min-height: 18rem; }
+  .credit-list > div { grid-template-columns: 1fr; gap: .65rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

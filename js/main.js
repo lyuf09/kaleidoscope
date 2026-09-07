@@ -2,7 +2,6 @@ const header = document.querySelector('[data-header]');
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 const parallaxLayer = document.querySelector('[data-parallax]');
-const audioNote = document.querySelector('[data-audio-note]');
 
 const syncHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
 syncHeader();
@@ -22,14 +21,3 @@ if (parallaxLayer && !window.matchMedia('(prefers-reduced-motion: reduce)').matc
     parallaxLayer.style.setProperty('--parallax-y', `${y.toFixed(2)}px`);
   }, { passive: true });
 }
-
-let noteTimer;
-document.querySelectorAll('[data-play]').forEach((button) => {
-  button.addEventListener('click', () => {
-    if (!audioNote) return;
-    audioNote.textContent = `Track ${button.dataset.play} · audio forthcoming`;
-    audioNote.classList.add('is-visible');
-    clearTimeout(noteTimer);
-    noteTimer = setTimeout(() => audioNote.classList.remove('is-visible'), 2200);
-  });
-});
