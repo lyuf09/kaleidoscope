@@ -2,14 +2,20 @@ const contentRoot = document.querySelector('[data-content]');
 const progressLabel = document.querySelector('[data-progress-label]');
 
 function renderMarkdown(markdown) {
+  const renderInline = (text) => text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
   return markdown
     .split(/\n{2,}/)
     .map((block) => {
       const text = block.trim();
       if (!text) return '';
-      if (text.startsWith('# ')) return `<h1>${text.slice(2)}</h1>`;
-      if (text.startsWith('> ')) return `<p class="placeholder-note">${text.slice(2)}</p>`;
-      return `<p>${text.replace(/\n/g, '<br>')}</p>`;
+      if (text.startsWith('# ')) return `<h1>${renderInline(text.slice(2))}</h1>`;
+      if (text.startsWith('> ')) return `<p class="placeholder-note">${renderInline(text.slice(2))}</p>`;
+      return `<p>${renderInline(text).replace(/\n/g, '<br>')}</p>`;
     })
     .join('');
 }
