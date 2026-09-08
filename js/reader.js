@@ -6,6 +6,7 @@ function renderMarkdown(markdown) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
+    .replace(/\\\*/g, '*')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
   return markdown

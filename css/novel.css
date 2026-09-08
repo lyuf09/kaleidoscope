@@ -53,18 +53,23 @@
 .directory-begin { margin-top: clamp(3rem, 6vw, 5rem); }
 
 /* Chapter V can opt into a brief optical misregistration without explanatory copy. */
+.reader-page.phase-shift {
+  --phase-shift: 12px;
+  --phase-counter-shift: -12px;
+}
 .reader-page.phase-shift .reader-shell {
-  transform: translateX(12px);
+  transform: translateX(var(--phase-shift));
   animation: phase-arrival .42s ease-out both;
 }
-.reader-page.phase-shift .chapter-count { transform: translateX(-12px); }
+.reader-page.phase-shift .chapter-count { transform: translateX(var(--phase-counter-shift)); }
 .reader-page.phase-shift .chapter-head { border-bottom-style: dashed; }
 .reader-page.post-shift .reader-shell { transform: translateX(1px); }
 @keyframes phase-arrival {
   0% { transform: translateX(0); text-shadow: -1px 0 rgba(139,109,88,.45), 1px 0 rgba(111,124,132,.55); }
-  100% { transform: translateX(12px); text-shadow: none; }
+  100% { transform: translateX(var(--phase-shift)); text-shadow: none; }
 }
 
+html { overflow-x: clip; }
 .reader-page { background: var(--paper-soft); }
 .reading-progress {
   position: fixed;
@@ -116,8 +121,14 @@
   .directory-head { grid-template-columns: 1fr; }
   .chapter-table > a,
   .chapter-table > div { grid-template-columns: 2.5rem 1fr auto; gap: .8rem; }
-  .reader-shell { padding-top: calc(var(--header-h) + 3rem); }
-  .reader-page.phase-shift .reader-shell { transform: translateX(4px); }
+  .reader-shell {
+    width: calc(100% - 24px);
+    padding-top: calc(var(--header-h) + 3rem);
+  }
+  .reader-page.phase-shift {
+    --phase-shift: 4px;
+    --phase-counter-shift: -4px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
