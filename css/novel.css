@@ -148,6 +148,73 @@ html { overflow-x: clip; }
   font: .74rem/1.7 var(--mono);
   text-indent: 0;
 }
+.chapter-visual {
+  position: relative;
+  width: 118%;
+  margin: clamp(4.5rem, 9vw, 7rem) 0 clamp(4.75rem, 9vw, 7.5rem) -9%;
+  border-block: 1px solid var(--line);
+  background: var(--paper-deep);
+  overflow: hidden;
+}
+.chapter-visual img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  filter: grayscale(.48) saturate(.55) contrast(.92);
+  mix-blend-mode: multiply;
+}
+.chapter-visual figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: .7rem .85rem;
+  background: color-mix(in srgb, var(--paper-soft) 86%, transparent);
+  font: .58rem/1 var(--mono);
+  letter-spacing: .1em;
+  text-indent: 0;
+  text-transform: uppercase;
+}
+.chapter-visual--archive-box { width: 106%; margin-left: -3%; }
+.chapter-visual--archive-box img { aspect-ratio: 4 / 3; object-position: center 57%; }
+.chapter-visual--orchid-corridor img { aspect-ratio: 16 / 7; filter: grayscale(.32) saturate(.4) contrast(.94); }
+.chapter-visual--mesh-glass { width: 112%; margin-left: -6%; opacity: .72; }
+.chapter-visual--mesh-glass img { aspect-ratio: 16 / 7; object-position: 18% center; }
+.chapter-visual--evidence-plate {
+  width: calc(100% + 13rem);
+  margin-left: -6.5rem;
+  background: var(--paper-soft);
+}
+.chapter-visual--evidence-plate img {
+  aspect-ratio: 8 / 5;
+  object-fit: contain;
+  padding: clamp(.8rem, 2vw, 1.5rem);
+  filter: grayscale(1) contrast(.98);
+  mix-blend-mode: normal;
+}
+.chapter-visual--h17-label { width: 76%; margin-left: auto; }
+.chapter-visual--h17-label img { aspect-ratio: 4 / 3; object-position: 43% center; }
+.chapter-visual--winter-beds { width: 124%; margin-left: -12%; }
+.chapter-visual--winter-beds img { aspect-ratio: 16 / 8.5; filter: grayscale(.3) saturate(.52) contrast(.98); }
+.chapter-visual--condition-survey { width: 132%; margin-left: -16%; }
+.chapter-visual--condition-survey img {
+  aspect-ratio: 16 / 9.5;
+  object-position: 52% center;
+  filter: none;
+  mix-blend-mode: normal;
+}
+.chapter-visual--paper-wall {
+  width: 74%;
+  margin: 5.5rem 0 0 auto;
+  border: 0;
+  background: transparent;
+  opacity: .24;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 24%, #000 68%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 24%, #000 68%, transparent);
+}
+.chapter-visual--paper-wall img { aspect-ratio: 3 / 2; object-position: 64% center; }
+.chapter-visual--paper-wall figcaption { display: none; }
 .reader-footer { padding-top: 2rem; border-top: 1px solid var(--line); }
 .reader-nav { display: flex; justify-content: space-between; gap: 2rem; }
 .reader-nav a { font: 500 .75rem/1.4 var(--mono); text-decoration: none; text-transform: uppercase; }
@@ -168,6 +235,18 @@ html { overflow-x: clip; }
     --phase-shift: 4px;
     --phase-counter-shift: -4px;
   }
+  .chapter-visual,
+  .chapter-visual--archive-box,
+  .chapter-visual--mesh-glass,
+  .chapter-visual--evidence-plate,
+  .chapter-visual--h17-label,
+  .chapter-visual--winter-beds,
+  .chapter-visual--condition-survey {
+    width: 100%;
+    margin-inline: 0;
+  }
+  .chapter-visual--evidence-plate img { padding: .3rem; }
+  .chapter-visual--paper-wall { width: 80%; margin-left: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

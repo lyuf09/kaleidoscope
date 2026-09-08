@@ -106,6 +106,8 @@ RENA / B04。
 
 可我没有划掉。
 
+[[visual:evidence-plate]]
+
 第一项是兰科项目。
 
 时间：早于Rui死亡。
