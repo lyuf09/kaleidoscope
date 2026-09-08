@@ -3,9 +3,7 @@
   position: relative;
   min-height: min(72svh, 48rem);
   display: grid;
-  grid-template-columns: minmax(5.5rem, 1fr) minmax(0, 4fr);
-  gap: 2rem;
-  align-items: end;
+  place-items: center;
   margin: 0;
   padding: clamp(2.25rem, 5vw, 4.5rem) var(--gutter);
   background: var(--sage-pale);
@@ -14,16 +12,28 @@
   overflow: hidden;
 }
 .book-front p { margin: 0; }
-.book-mark { font-size: .78rem; letter-spacing: .1em; }
 .book-title {
   position: relative;
   z-index: 2;
   display: flex;
-  min-height: 12rem;
   flex-direction: column;
-  justify-content: space-between;
-  font: 400 clamp(1.25rem, 2.4vw, 2rem)/1.25 var(--mono);
-  letter-spacing: .05em;
+  align-items: center;
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+  text-align: center;
+}
+.book-title .book-mark {
+  font: 400 clamp(.72rem, 1vw, .9rem)/1 var(--mono);
+  letter-spacing: .11em;
+}
+.book-kind {
+  font: 400 clamp(4rem, 7vw, 7rem)/.92 var(--display);
+  letter-spacing: -.035em;
+}
+html[lang="zh-Hans"] .book-kind {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: .08em;
+  margin-left: .08em;
 }
 .novel-strip {
   position: absolute;
@@ -58,7 +68,6 @@
   transform: rotate(-90deg);
   transform-origin: right bottom;
 }
-.book-title .book-mark { font-size: .78rem; }
 .bracket-link { width: max-content; }
 .bracket-link::before { content: "[ "; }
 .bracket-link::after { content: " ]"; }
@@ -235,7 +244,7 @@ html { overflow-x: clip; }
 
 @media (max-width: 760px) {
   .book-front { min-height: 67svh; grid-template-columns: 1fr; }
-  .book-title { max-width: 62%; }
+  .book-title { max-width: 68%; }
   .novel-strip { right: var(--gutter); width: 22vw; opacity: .2; }
   .directory-head { grid-template-columns: 1fr; }
   .language-note { margin: -2rem 0 2.5rem; }

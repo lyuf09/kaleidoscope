@@ -67,7 +67,7 @@
       'tracks.label': '曲目列表',
       'actions.play': '播放 — 尚未发布',
       'actions.read': '阅读',
-      'novel.kind': '一部小说',
+      'novel.kind': '小说',
       'novel.chapters': '章节',
       'novel.begin': '开始阅读',
       'novel.languageNote': '',
