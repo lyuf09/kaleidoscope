@@ -88,6 +88,13 @@
 .chapter-table > a { transition: padding .25s ease, background .25s ease; }
 .chapter-table > a:hover { padding-inline: 1rem; background: rgba(120,128,107,.13); }
 .directory-begin { margin-top: clamp(3rem, 6vw, 5rem); }
+.language-note {
+  max-width: 34rem;
+  margin: calc(clamp(4rem, 8vw, 7rem) * -.55) 0 clamp(2.5rem, 5vw, 4rem) calc((100% - 2rem) / 5 + 2rem);
+  color: var(--ink-soft);
+  font: 400 .72rem/1.6 var(--mono);
+  letter-spacing: .04em;
+}
 
 /* Chapter V can opt into a brief optical misregistration without explanatory copy. */
 .reader-page.phase-shift {
@@ -129,6 +136,12 @@ html { overflow-x: clip; }
   padding: 1.75rem 0 2.1rem;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+.reader-language-note {
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  font: 400 .68rem/1.55 var(--mono);
+  letter-spacing: .035em;
 }
 .chapter-count { margin: 0 0 3.25rem; font: .72rem/1 var(--mono); letter-spacing: .1em; }
 .chapter-head h1 { margin: 0 0 .55rem; font: 500 clamp(2.2rem, 6vw, 4rem)/1 var(--serif); letter-spacing: -.04em; }
@@ -225,6 +238,7 @@ html { overflow-x: clip; }
   .book-title { max-width: 62%; }
   .novel-strip { right: var(--gutter); width: 22vw; opacity: .2; }
   .directory-head { grid-template-columns: 1fr; }
+  .language-note { margin: -2rem 0 2.5rem; }
   .chapter-table > a,
   .chapter-table > div { grid-template-columns: 2.5rem 1fr auto; gap: .8rem; }
   .reader-shell {

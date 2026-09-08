@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Companion site for HazezZ's album Kaleidoscope — music, artwork, lyrics, and a nine-chapter novel.">
   <title>Kaleidoscope — HazezZ</title>
-  <link rel="stylesheet" href="css/main.css?v=20260908c">
+  <link rel="stylesheet" href="css/main.css?v=20260908g">
+  <script src="js/i18n.js?v=20260908a" defer></script>
 </head>
 <body class="home">
   <header class="site-header" data-header>
     <a class="brand" href="index.html">KALEIDOSCOPE</a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-      <a href="tracks.html">Tracks</a>
-      <a href="novel.html">Novel</a>
-      <a href="archive.html">Archive</a>
-      <a href="credits.html">Credits</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="nav.menu">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.label">
+      <a href="tracks.html" data-i18n="nav.tracks">Tracks</a>
+      <a href="novel.html" data-i18n="nav.novel">Novel</a>
+      <a href="archive.html" data-i18n="nav.archive">Archive</a>
+      <a href="credits.html" data-i18n="nav.credits">Credits</a>
+      <span class="language-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="false">中</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </span>
     </nav>
   </header>
 
@@ -24,20 +28,19 @@
       <div class="hero-image" data-parallax aria-hidden="true"></div>
       <div class="hero-wash" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow">HazezZ · 2026/2027</p>
+        <p class="eyebrow">HazezZ · 2026—2027</p>
         <h1 id="hero-title">Kaleidoscope</h1>
         <p class="hero-cn" lang="zh-Hans">万花镜</p>
-        <p class="hero-line">Nine songs.<br>Nine points of refraction.</p>
+        <p class="hero-meta" data-i18n="home.heroMeta">09 TRACKS / 09 CHAPTERS</p>
       </div>
-      <a class="scroll-cue" href="#entrance" aria-label="Enter the album">↓</a>
+      <a class="scroll-cue" href="#entrance" aria-label="Enter" data-i18n-aria-label="home.enterAria">↓</a>
     </section>
 
-    <section class="entrance page-grid" id="entrance">
-      <p class="section-index">00 / 04</p>
-      <div class="entrance-copy">
-        <p class="kicker">A companion work in sound and text.</p>
-        <p class="entrance-credit">HazezZ</p>
-        <a class="text-link" href="tracks.html">Enter the album <span aria-hidden="true">→</span></a>
+    <section class="entrance" id="entrance">
+      <div class="entrance-portals">
+        <a href="tracks.html"><span>01</span><strong data-i18n="home.portal.tracks">Tracks</strong><span aria-hidden="true">→</span></a>
+        <a href="novel.html"><span>02</span><strong data-i18n="home.portal.novel">Novel</strong><span aria-hidden="true">→</span></a>
+        <a href="archive.html"><span>03</span><strong data-i18n="home.portal.archive">Archive</strong><span aria-hidden="true">→</span></a>
       </div>
       <div class="entrance-fragment" aria-hidden="true"><span>FRAME 05 / RESEARCH BAY</span></div>
     </section>
@@ -45,14 +48,14 @@
     <section class="home-track-preview" aria-labelledby="preview-title">
       <div class="preview-head">
         <p class="section-index">01 / 09</p>
-        <h2 id="preview-title">Tracklist</h2>
+        <h2 id="preview-title" data-i18n="home.tracklist">Tracklist</h2>
       </div>
       <div class="preview-list">
         <a href="tracks.html#track-01"><span>01</span><strong>Incidence</strong><span>→</span></a>
         <a href="tracks.html#track-02"><span>02</span><strong lang="zh-Hans">紫陽花</strong><span>→</span></a>
         <a href="tracks.html#track-03"><span>03</span><strong lang="zh-Hans">蘭</strong><span>→</span></a>
       </div>
-      <a class="text-link preview-all" href="tracks.html">All nine tracks <span aria-hidden="true">→</span></a>
+      <a class="text-link preview-all" href="tracks.html"><span data-i18n="home.viewAll">View all</span> <span aria-hidden="true">→</span></a>
     </section>
   </main>
 

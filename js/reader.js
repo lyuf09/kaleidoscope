@@ -76,7 +76,9 @@ async function loadChapter() {
     if (!response.ok) throw new Error('Chapter unavailable');
     contentRoot.innerHTML = renderMarkdown(await response.text());
   } catch {
-    contentRoot.innerHTML = '<p class="placeholder-note">Start a local web server to load the Markdown chapter file.</p>';
+    const message = window.KaleidoscopeI18n?.t('reader.loadError')
+      || 'Start a local web server to load the Markdown chapter file.';
+    contentRoot.innerHTML = `<p class="placeholder-note" data-i18n="reader.loadError">${message}</p>`;
   }
 }
 

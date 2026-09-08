@@ -4,22 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Archive — Kaleidoscope</title>
-  <link rel="stylesheet" href="css/main.css?v=20260908c">
+  <link rel="stylesheet" href="css/main.css?v=20260908g">
+  <script src="js/i18n.js?v=20260908a" defer></script>
 </head>
 <body>
   <header class="site-header is-scrolled" data-header>
     <a class="brand" href="index.html">KALEIDOSCOPE</a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-      <a href="tracks.html">Tracks</a><a href="novel.html">Novel</a><a href="archive.html" aria-current="page">Archive</a><a href="credits.html">Credits</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="nav.menu">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.label">
+      <a href="tracks.html" data-i18n="nav.tracks">Tracks</a><a href="novel.html" data-i18n="nav.novel">Novel</a><a href="archive.html" aria-current="page" data-i18n="nav.archive">Archive</a><a href="credits.html" data-i18n="nav.credits">Credits</a>
+      <span class="language-switch" role="group" aria-label="Language"><button type="button" data-lang="zh" aria-pressed="false">中</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button></span>
     </nav>
   </header>
   <main class="site-page">
     <header class="page-intro page-grid archive-intro">
       <p class="section-index">03 / 04</p>
-      <div><p class="eyebrow">Images / fragments / process</p><h1>Archive</h1><p class="lede">Visual residue, indexed as the work develops.</p></div>
+      <div><p class="eyebrow" data-i18n="archive.eyebrow">Images / fragments / process</p><h1 data-i18n="archive.title">Archive</h1><p class="lede" data-i18n="archive.lede">Visual residue, indexed as the work develops.</p></div>
     </header>
-    <section class="archive-grid" aria-label="Archive collections">
+    <section class="archive-grid" aria-label="Archive collections" data-i18n-aria-label="archive.label">
       <article class="archive-card archive-card--cover">
         <figure><img src="assets/images/kaleidoscope-hero.png" alt="Refracted leaves and glass from the Kaleidoscope cover study"></figure>
         <div class="archive-meta"><p>00 / Artwork</p><h2>Master field</h2><span>Study 000</span></div>
@@ -83,7 +85,7 @@
         <div class="archive-meta"><p>12 / Registration</p><h2>Refraction marks</h2><span>Set 01–09</span></div>
       </article>
     </section>
-    <p class="archive-status">13 studies visible / frame · study · record · plate</p>
+    <p class="archive-status" data-i18n="archive.status">13 studies visible / frame · study · record · plate</p>
   </main>
   <script src="js/main.js"></script>
 </body>

@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The nine tracks of Kaleidoscope by HazezZ.">
   <title>Tracks — Kaleidoscope</title>
-  <link rel="stylesheet" href="css/main.css?v=20260908c">
+  <link rel="stylesheet" href="css/main.css?v=20260908g">
+  <script src="js/i18n.js?v=20260908a" defer></script>
 </head>
 <body>
   <header class="site-header" data-header>
     <a class="brand" href="index.html">KALEIDOSCOPE</a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-      <a href="tracks.html" aria-current="page">Tracks</a>
-      <a href="novel.html">Novel</a>
-      <a href="archive.html">Archive</a>
-      <a href="credits.html">Credits</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="nav.menu">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.label">
+      <a href="tracks.html" aria-current="page" data-i18n="nav.tracks">Tracks</a>
+      <a href="novel.html" data-i18n="nav.novel">Novel</a>
+      <a href="archive.html" data-i18n="nav.archive">Archive</a>
+      <a href="credits.html" data-i18n="nav.credits">Credits</a>
+      <span class="language-switch" role="group" aria-label="Language"><button type="button" data-lang="zh" aria-pressed="false">中</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button></span>
     </nav>
   </header>
 
@@ -23,12 +25,12 @@
     <header class="page-intro page-grid">
       <p class="section-index">01 / 04</p>
       <div>
-        <p class="eyebrow">Nine tracks</p>
-        <h1>Tracklist</h1>
+        <p class="eyebrow" data-i18n="tracks.eyebrow">Nine tracks</p>
+        <h1 data-i18n="tracks.title">Tracklist</h1>
       </div>
     </header>
 
-    <section class="track-list" aria-label="Tracklist">
+    <section class="track-list" aria-label="Tracklist" data-i18n-aria-label="tracks.label">
       <article class="track" id="track-01"><p class="track-no">01</p><div class="track-name"><h2>Incidence</h2></div><div class="track-actions"><button type="button" disabled>Play — forthcoming</button><a href="novel/01-incidence.html">Read</a></div><svg class="track-mark" aria-hidden="true"><use href="assets/images/refraction-marks.svg#mark-01"></use></svg></article>
       <article class="track" id="track-02"><p class="track-no">02</p><div class="track-name"><h2 lang="zh-Hans">紫陽花</h2></div><div class="track-actions"><button type="button" disabled>Play — forthcoming</button><a href="novel/02-hydrangea.html">Read</a></div><svg class="track-mark" aria-hidden="true"><use href="assets/images/refraction-marks.svg#mark-02"></use></svg></article>
       <article class="track has-fragment" id="track-03"><p class="track-no">03</p><div class="track-name"><h2 lang="zh-Hans">蘭</h2></div><div class="track-actions"><button type="button" disabled>Play — forthcoming</button><a href="novel/03-orchid.html">Read</a></div><svg class="track-mark" aria-hidden="true"><use href="assets/images/refraction-marks.svg#mark-03"></use></svg><figure class="track-fragment track-fragment-03" aria-hidden="true"><img src="assets/images/orchid-corridor.jpg" alt="" loading="lazy"><span>WITHDRAWN / 03</span></figure></article>
