@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="mark-01" viewBox="0 0 80 24">
+    <path d="M3 12h25m16 0h33M30 19 42 5"/>
+  </symbol>
+  <symbol id="mark-02" viewBox="0 0 80 24">
+    <path d="M3 12h29m16 0h29M32 12l8-7 8 7-8 7-8-7Z"/>
+  </symbol>
+  <symbol id="mark-03" viewBox="0 0 80 24">
+    <path d="M3 12h20m32 0h22M26 20 36 4m5 16L51 4"/>
+  </symbol>
+  <symbol id="mark-04" viewBox="0 0 80 24">
+    <path d="M3 12h29m16 0h29"/><circle cx="40" cy="12" r="7"/>
+  </symbol>
+  <symbol id="mark-05" viewBox="0 0 80 24">
+    <path d="M3 12h74M40 2v20"/>
+  </symbol>
+  <symbol id="mark-06" viewBox="0 0 80 24">
+    <path d="M3 12h22m30 0h22M28 4l9 16M43 4l9 16"/>
+  </symbol>
+  <symbol id="mark-07" viewBox="0 0 80 24">
+    <path d="M3 12h29m16 0h29"/><circle cx="40" cy="12" r="7" stroke-dasharray="2 3"/>
+  </symbol>
+  <symbol id="mark-08" viewBox="0 0 80 24">
+    <path d="M3 12h27m20 0h27M35 3v18m10-18v18"/>
+  </symbol>
+  <symbol id="mark-09" viewBox="0 0 80 24">
+    <path d="M3 12h74"/>
+  </symbol>
+</svg>

@@ -1,5 +1,6 @@
 .novel-index { background: var(--paper-soft); }
 .book-front {
+  position: relative;
   min-height: min(72svh, 48rem);
   display: grid;
   grid-template-columns: minmax(5.5rem, 1fr) minmax(0, 4fr);
@@ -10,16 +11,52 @@
   background: var(--sage-pale);
   border-bottom: 1px solid var(--line);
   font-family: var(--mono);
+  overflow: hidden;
 }
 .book-front p { margin: 0; }
 .book-mark { font-size: .78rem; letter-spacing: .1em; }
 .book-title {
+  position: relative;
+  z-index: 2;
   display: flex;
   min-height: 12rem;
   flex-direction: column;
   justify-content: space-between;
   font: 400 clamp(1.25rem, 2.4vw, 2rem)/1.25 var(--mono);
   letter-spacing: .05em;
+}
+.novel-strip {
+  position: absolute;
+  top: 17%;
+  right: clamp(1.5rem, 7vw, 7.5rem);
+  bottom: 10%;
+  width: clamp(5.75rem, 12vw, 10.5rem);
+  margin: 0;
+  border-inline: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  opacity: .28;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(0deg, transparent, #000 13%, #000 87%, transparent);
+  mask-image: linear-gradient(0deg, transparent, #000 13%, #000 87%, transparent);
+}
+.novel-strip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 39% center;
+  filter: grayscale(.72) contrast(.86) saturate(.45);
+}
+.novel-strip figcaption {
+  position: absolute;
+  right: calc(100% + .65rem);
+  bottom: 10%;
+  width: max-content;
+  color: var(--ink-soft);
+  font: .58rem/1 var(--mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  transform-origin: right bottom;
 }
 .book-title .book-mark { font-size: .78rem; }
 .bracket-link { width: max-content; }
@@ -117,7 +154,9 @@ html { overflow-x: clip; }
 .back-track { display: inline-block; margin-top: 3rem; font: 500 .72rem/1 var(--mono); text-transform: uppercase; }
 
 @media (max-width: 760px) {
-  .book-front { grid-template-columns: 1fr; }
+  .book-front { min-height: 67svh; grid-template-columns: 1fr; }
+  .book-title { max-width: 62%; }
+  .novel-strip { right: var(--gutter); width: 22vw; opacity: .2; }
   .directory-head { grid-template-columns: 1fr; }
   .chapter-table > a,
   .chapter-table > div { grid-template-columns: 2.5rem 1fr auto; gap: .8rem; }

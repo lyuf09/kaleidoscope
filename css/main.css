@@ -168,14 +168,42 @@ button { color: inherit; }
   padding-inline: var(--gutter);
 }
 .entrance {
+  position: relative;
   min-height: 62vh;
   align-items: start;
   padding-top: clamp(6rem, 11vw, 9rem);
   padding-bottom: clamp(6rem, 11vw, 9rem);
   background: var(--sage-dark);
   color: var(--paper-soft);
+  overflow: hidden;
 }
-.entrance-copy { max-width: 32rem; }
+.entrance-copy { position: relative; z-index: 2; max-width: 32rem; }
+.entrance-fragment {
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 5.5rem);
+  bottom: clamp(2.5rem, 7vh, 5rem);
+  width: clamp(7rem, 13vw, 12rem);
+  height: clamp(12rem, 34vh, 20rem);
+  border: 1px solid rgba(244, 240, 231, .24);
+  background: url("../assets/images/kaleidoscope-hero.png") 78% 48% / 460% auto no-repeat;
+  opacity: .075;
+  filter: grayscale(.72) contrast(.86);
+  mix-blend-mode: screen;
+}
+.entrance-fragment::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px dashed currentColor;
+}
+.entrance-fragment span {
+  position: absolute;
+  left: .75rem;
+  bottom: .65rem;
+  font: .58rem/1 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 .entrance-credit {
   margin: clamp(3rem, 7vw, 5rem) 0 1.5rem;
   font: 400 .76rem/1.4 var(--mono);
@@ -255,7 +283,7 @@ button { color: inherit; }
 .track-list { background: var(--paper-soft); }
 .track {
   position: relative;
-  min-height: min(56vh, 34rem);
+  min-height: clamp(22rem, 42vh, 28rem);
   display: grid;
   grid-template-columns: minmax(5.5rem, 1fr) minmax(14rem, 2.5fr) minmax(10rem, 1.5fr);
   gap: 2rem;
@@ -265,6 +293,7 @@ button { color: inherit; }
   overflow: hidden;
   transition: background-color .35s ease, color .35s ease;
 }
+.track.has-fragment { min-height: clamp(28rem, 56vh, 36rem); }
 .track::before {
   content: "";
   position: absolute;
@@ -274,20 +303,97 @@ button { color: inherit; }
   transition: opacity .35s ease;
 }
 .track:hover::before { opacity: 1; }
-.track:nth-child(2)::after,
-.track:nth-child(4)::after {
-  content: "";
+.track > * { position: relative; z-index: 1; }
+.track-mark {
+  position: absolute;
+  z-index: 2;
+  left: var(--gutter);
+  bottom: clamp(1.5rem, 3vw, 2.25rem);
+  width: 4.4rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: square;
+  opacity: .32;
+}
+.track-fragment {
   position: absolute;
   z-index: 0;
-  inset: 0 0 0 54%;
-  background: url("../assets/images/kaleidoscope-hero.png") 78% center/cover no-repeat;
-  opacity: .1;
-  filter: grayscale(.35) contrast(.85);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
-  mask-image: linear-gradient(90deg, transparent, #000);
+  margin: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
-.track:nth-child(4)::after { opacity: .055; background-position: 18% center; }
-.track > * { position: relative; z-index: 1; }
+.track-fragment img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(.7) contrast(.88) saturate(.45);
+}
+.track-fragment-03 {
+  top: 11%;
+  right: 8%;
+  width: clamp(7.5rem, 19vw, 18rem);
+  height: 78%;
+  opacity: .4;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 76%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 76%, transparent 100%);
+}
+.track-fragment-03 img { object-position: 20% center; }
+.track-fragment-05 {
+  top: 12%;
+  right: 24%;
+  width: clamp(10rem, 23vw, 22rem);
+  height: 74%;
+  opacity: .42;
+  background: url("../assets/images/fragment-condensation.jpg") center / cover no-repeat;
+  filter: grayscale(.62) contrast(.9);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+.track-fragment-05::before,
+.track-fragment-05::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  mix-blend-mode: multiply;
+}
+.track-fragment-05::before {
+  opacity: .52;
+  filter: sepia(.35) hue-rotate(154deg) saturate(.9);
+  clip-path: polygon(0 0, 100% 0, 100% 46%, 0 52%);
+  transform: translateX(-3px);
+}
+.track-fragment-05::after {
+  opacity: .45;
+  filter: sepia(.25) hue-rotate(318deg) saturate(.75);
+  clip-path: polygon(0 52%, 100% 46%, 100% 100%, 0 100%);
+  transform: translateX(3px);
+}
+.track-fragment-05 span,
+.track-fragment-08 span {
+  position: absolute;
+  z-index: 2;
+  font: .58rem/1 var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.track-fragment-05 span { right: .4rem; bottom: .5rem; }
+.track-shift:hover .track-fragment-05::before { transform: translateX(-5px); }
+.track-shift:hover .track-fragment-05::after { transform: translateX(5px); }
+.track-fragment-08 {
+  right: 0;
+  bottom: 0;
+  width: min(44vw, 42rem);
+  height: 38%;
+  opacity: .34;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 24%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 24%, #000 88%, transparent);
+}
+.track-fragment-08 img { object-position: 60% 42%; }
+.track-fragment-08 span { right: 1rem; bottom: .85rem; }
 .track-no { align-self: start; margin: 0; font: 400 .77rem/1 var(--mono); letter-spacing: .12em; }
 .track-name h2,
 .track-name > p:first-child {
@@ -326,32 +432,83 @@ button { color: inherit; }
   opacity: .72;
 }
 .track-actions button:disabled:hover { background: transparent; color: var(--ink-soft); }
-.track-shift { background: color-mix(in srgb, var(--glass-blue) 14%, var(--paper-soft)); }
+.track-shift { min-height: clamp(30rem, 62vh, 40rem); background: color-mix(in srgb, var(--glass-blue) 14%, var(--paper-soft)); }
 .track-shift:hover .track-name { text-shadow: -1px 0 rgba(139,109,88,.34), 1px 0 rgba(111,124,132,.5); }
 .track:nth-child(n + 6) .track-name { transform: translateX(1px); }
 .track:nth-child(n + 6) { border-bottom-color: color-mix(in srgb, var(--glass-blue) 40%, transparent); }
 
 .archive-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1px;
   padding: 1px var(--gutter);
   background: var(--line);
 }
 .archive-card {
-  min-height: 24rem;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
+  min-height: 28rem;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
   background: var(--paper-soft);
+  overflow: hidden;
 }
+.archive-card--cover { grid-column: span 7; min-height: 34rem; }
+.archive-card--mesh { grid-column: span 5; min-height: 34rem; }
+.archive-card--paper,
+.archive-card--glass,
+.archive-card--dusk { grid-column: span 4; }
+.archive-card--marks { grid-column: 1 / -1; min-height: 19rem; }
+.archive-card figure {
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+.archive-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .8;
+  filter: grayscale(.52) saturate(.5) contrast(.9);
+  mix-blend-mode: multiply;
+  transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .45s ease, opacity .45s ease;
+}
+.archive-card--cover img { object-position: 71% center; }
+.archive-card--mesh img { object-position: 17% center; }
+.archive-card--paper img { object-position: 64% center; }
+.archive-card--glass img { object-position: 36% center; }
+.archive-card--dusk img { object-position: 64% center; }
+.archive-card:hover img { transform: scale(1.018); filter: grayscale(.35) saturate(.64) contrast(.94); opacity: .9; }
+.archive-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .7rem 1.5rem;
+  padding: 1.35rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.archive-meta h2 { grid-column: 1 / -1; }
 .archive-card p,
 .archive-card span,
 .archive-status { font: .7rem/1.4 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
 .archive-card p { margin: 0; }
-.archive-card h2 { margin: auto 0; font: 500 clamp(2rem, 4vw, 4rem)/1 var(--sans); letter-spacing: -.055em; text-transform: uppercase; }
+.archive-card h2 { margin: 0; font: 500 clamp(1.1rem, 2vw, 1.7rem)/1.05 var(--sans); letter-spacing: -.035em; text-transform: uppercase; }
 .archive-card span { color: var(--ink-soft); }
 .archive-status { margin: 0; padding: 2.5rem var(--gutter) 6rem; color: var(--ink-soft); }
+.archive-mark-set {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 2.5rem) clamp(2rem, 7vw, 7rem);
+  align-content: center;
+  padding: clamp(2.5rem, 6vw, 5rem);
+}
+.archive-mark-set svg {
+  width: min(100%, 8rem);
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: .52;
+}
 
 .credit-list { padding: clamp(5rem, 10vw, 9rem) var(--gutter); }
 .credit-list > div {
@@ -387,6 +544,7 @@ button { color: inherit; }
   .hero-wash { background: linear-gradient(90deg, rgba(236,231,219,.72), rgba(236,231,219,.2)); }
   .page-grid { grid-template-columns: 1fr; }
   .entrance .section-index { margin-bottom: 2rem; }
+  .entrance-fragment { right: var(--gutter); width: 22vw; height: 13rem; opacity: .06; }
   .preview-head { grid-template-columns: 1fr; }
   .preview-list a { grid-template-columns: 2.5rem 1fr auto; gap: .8rem; }
   .page-intro { min-height: 54vh; gap: 3rem; }
@@ -396,10 +554,24 @@ button { color: inherit; }
     align-content: space-between;
     gap: 2.5rem 1rem;
   }
+  .track.has-fragment,
+  .track-shift { min-height: 27rem; }
   .track-name { grid-column: 1 / -1; }
   .track-actions { justify-self: start; }
+  .track-mark { left: auto; right: var(--gutter); bottom: 1.35rem; width: 3.75rem; }
+  .track-fragment-03 { right: 3%; width: 34vw; opacity: .3; }
+  .track-fragment-05 { right: 10%; width: 48vw; opacity: .32; }
+  .track-fragment-08 { width: 78vw; height: 31%; opacity: .28; }
   .archive-grid { grid-template-columns: 1fr; }
-  .archive-card { min-height: 18rem; }
+  .archive-card,
+  .archive-card--cover,
+  .archive-card--mesh,
+  .archive-card--paper,
+  .archive-card--glass,
+  .archive-card--dusk,
+  .archive-card--marks { grid-column: 1; min-height: 22rem; }
+  .archive-card--marks { min-height: 17rem; }
+  .archive-mark-set { gap: 1.5rem 2.5rem; padding: 2.5rem 1.5rem; }
   .credit-list > div { grid-template-columns: 1fr; gap: .65rem; }
 }
 
