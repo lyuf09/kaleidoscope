@@ -97,7 +97,13 @@ html[lang="zh-Hans"] .book-kind {
   font-size: clamp(.9rem, 1.4vw, 1.18rem);
   text-decoration: none;
 }
-.chapter-table strong { font-weight: 500; }
+.chapter-table strong {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .28em .42em;
+  font-weight: 500;
+}
 .chapter-table > * > span:last-child { font-family: var(--mono); font-size: .75rem; }
 .chapter-table > div { color: var(--ink-soft); }
 .chapter-table > a { transition: padding .25s ease, background .25s ease; }
@@ -160,6 +166,12 @@ html { overflow-x: clip; }
 }
 .chapter-count { margin: 0 0 3.25rem; font: .72rem/1 var(--mono); letter-spacing: .1em; }
 .chapter-head h1 { margin: 0 0 .55rem; font: 500 clamp(2.2rem, 6vw, 4rem)/1 var(--serif); letter-spacing: -.04em; }
+.chapter-gloss {
+  margin: -.1rem 0 .65rem;
+  color: var(--ink-soft);
+  font: italic 400 .78rem/1.35 var(--sans);
+  letter-spacing: .01em;
+}
 .chapter-state { margin: 0; font: .72rem/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .progress-label { align-self: end; font: .7rem/1 var(--mono); }
 .reader-content {

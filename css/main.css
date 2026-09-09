@@ -734,11 +734,21 @@ button { color: inherit; }
   text-transform: uppercase;
 }
 .master-index-list article > a:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .28em .42em;
   font: 500 clamp(1.1rem, 2vw, 1.55rem)/1.1 var(--sans);
   letter-spacing: -.025em;
   text-decoration: none;
 }
 .master-index-list article > a:nth-child(2)[lang] { font-family: var(--serif); }
+.title-gloss {
+  color: var(--ink-soft);
+  font: italic 400 .68em/1.25 var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
 .master-index-list article > a:last-child {
   justify-self: end;
   font: 500 .68rem/1 var(--mono);
@@ -831,6 +841,10 @@ button { color: inherit; }
   background: color-mix(in srgb, var(--glass-blue) 10%, transparent);
 }
 .track-row h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .25em .38em;
   margin: 0;
   font: 500 clamp(1rem, 1.7vw, 1.38rem)/1.1 var(--sans);
   letter-spacing: -.025em;
