@@ -180,6 +180,18 @@ html { overflow-x: clip; }
 }
 .reader-content p { margin: 0 0 .35rem; text-indent: 2em; }
 .reader-content h1 { display: none; }
+.reader-content .document-record {
+  margin: 2.15rem 0 2.35rem;
+  padding: .15rem 0 .15rem 1.1rem;
+  border-left: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  color: var(--ink-soft);
+  font: 400 .72rem/1.9 var(--mono);
+  letter-spacing: .075em;
+}
+.reader-content .document-record span {
+  display: block;
+  white-space: pre-wrap;
+}
 .reader-content .placeholder-note {
   margin: 3rem 0;
   padding-left: 1rem;

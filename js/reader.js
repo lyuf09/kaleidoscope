@@ -50,7 +50,7 @@ function renderMarkdown(markdown) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/\\\*/g, '*')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    .replace(/\*\*(.+?)\*\*/g, '$1');
 
   return markdown
     .split(/\n{2,}/)
@@ -61,6 +61,14 @@ function renderMarkdown(markdown) {
       if (visualMatch && chapterVisuals[visualMatch[1]]) {
         const visual = chapterVisuals[visualMatch[1]];
         return `<figure class="chapter-visual chapter-visual--${visualMatch[1]}"><img src="${visual.src}" alt="${visual.alt}" loading="lazy"><figcaption>${visual.label}</figcaption></figure>`;
+      }
+      const recordMatch = text.match(/^\[\[record\]\]\n([\s\S]+)\n\[\[\/record\]\]$/);
+      if (recordMatch) {
+        const lines = recordMatch[1]
+          .split('\n')
+          .map((line) => `<span>${renderInline(line)}</span>`)
+          .join('');
+        return `<div class="document-record">${lines}</div>`;
       }
       if (text.startsWith('# ')) return `<h1>${renderInline(text.slice(2))}</h1>`;
       if (text.startsWith('> ')) return `<p class="placeholder-note">${renderInline(text.slice(2))}</p>`;
