@@ -233,18 +233,6 @@ html { overflow-x: clip; }
 .chapter-visual--orchid-corridor img { aspect-ratio: 16 / 7; filter: grayscale(.32) saturate(.4) contrast(.94); }
 .chapter-visual--mesh-glass { width: 112%; margin-left: -6%; opacity: .72; }
 .chapter-visual--mesh-glass img { aspect-ratio: 16 / 7; object-position: 18% center; }
-.chapter-visual--evidence-plate {
-  width: calc(100% + 13rem);
-  margin-left: -6.5rem;
-  background: var(--paper-soft);
-}
-.chapter-visual--evidence-plate img {
-  aspect-ratio: 8 / 5;
-  object-fit: contain;
-  padding: clamp(.8rem, 2vw, 1.5rem);
-  filter: grayscale(1) contrast(.98);
-  mix-blend-mode: normal;
-}
 .chapter-visual--h17-label { width: 76%; margin-left: auto; }
 .chapter-visual--h17-label img { aspect-ratio: 4 / 3; object-position: 43% center; }
 .chapter-visual--winter-beds { width: 124%; margin-left: -12%; }
@@ -291,14 +279,12 @@ html { overflow-x: clip; }
   .chapter-visual,
   .chapter-visual--archive-box,
   .chapter-visual--mesh-glass,
-  .chapter-visual--evidence-plate,
   .chapter-visual--h17-label,
   .chapter-visual--winter-beds,
   .chapter-visual--condition-survey {
     width: 100%;
     margin-inline: 0;
   }
-  .chapter-visual--evidence-plate img { padding: .3rem; }
   .chapter-visual--paper-wall { width: 80%; margin-left: auto; }
 }
 

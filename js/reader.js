@@ -17,11 +17,6 @@ const chapterVisuals = {
     alt: 'Weathered wire mesh and old greenhouse glass',
     label: 'FRAME 02 / WEST GLASSHOUSE'
   },
-  'evidence-plate': {
-    src: '../assets/images/evidence-plate.svg',
-    alt: 'An archival evidence plate separating camera, server, and badge timestamps',
-    label: 'PLATE 11 / SOURCES HELD SEPARATELY'
-  },
   'h17-label': {
     src: '../assets/images/h17-label.jpg',
     alt: 'A weathered plant label marked WGH H17 with a partial accession number',

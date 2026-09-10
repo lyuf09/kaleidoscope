@@ -526,7 +526,9 @@ button { color: inherit; }
 .archive-card--label { grid-column: span 3; }
 .archive-card--beds { grid-column: span 4; }
 .archive-card--survey { grid-column: span 5; min-height: 31rem; }
-.archive-card--plate { grid-column: span 7; min-height: 31rem; }
+.archive-card--raw { grid-column: span 3; min-height: 31rem; }
+.archive-card--entry { grid-column: span 5; }
+.archive-card--ingest { grid-column: span 7; }
 .archive-card--marks { grid-column: 1 / -1; min-height: 19rem; }
 .archive-card figure {
   min-height: 0;
@@ -555,9 +557,13 @@ button { color: inherit; }
 .archive-card--label img { object-position: 47% center; }
 .archive-card--beds img { object-position: center 58%; }
 .archive-card--survey img { object-position: 57% center; filter: grayscale(.18) saturate(.62) contrast(.96); }
-.archive-card--plate img { object-fit: contain; padding: clamp(1.25rem, 3vw, 2.5rem); filter: grayscale(1) contrast(.96); }
+.archive-card--raw img { transform: scale(2.3); transform-origin: 18% 10%; }
+.archive-card--entry img { transform: scale(2.3); transform-origin: 15% 10%; }
+.archive-card--ingest img { transform: scale(2.3); transform-origin: 12% 10%; }
 .archive-card:hover img { transform: scale(1.018); filter: grayscale(.35) saturate(.64) contrast(.94); opacity: .9; }
-.archive-card--plate:hover img { filter: grayscale(1) contrast(.96); }
+.archive-card--raw:hover img { transform: scale(2.34); }
+.archive-card--entry:hover img { transform: scale(2.34); }
+.archive-card--ingest:hover img { transform: scale(2.34); }
 .archive-meta {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -658,7 +664,9 @@ button { color: inherit; }
   .archive-card--label,
   .archive-card--beds,
   .archive-card--survey,
-  .archive-card--plate,
+  .archive-card--raw,
+  .archive-card--entry,
+  .archive-card--ingest,
   .archive-card--marks { grid-column: 1; min-height: 22rem; }
   .archive-card--marks { min-height: 17rem; }
   .archive-mark-set { gap: 1.5rem 2.5rem; padding: 2.5rem 1.5rem; }
@@ -793,7 +801,7 @@ button { color: inherit; }
   transition: transform .55s ease, opacity .35s ease;
 }
 .home-archive-grid a:nth-child(2) img { object-position: 44% center; }
-.home-archive-grid a:nth-child(3) img { object-fit: contain; padding: 8%; background: var(--paper); }
+.home-archive-grid a:nth-child(3) img { object-position: 52% center; }
 .home-archive-grid a:hover img { transform: scale(1.018); opacity: .78; }
 .home-archive-grid span {
   position: absolute;
