@@ -65,6 +65,19 @@ function renderMarkdown(markdown) {
           .join('');
         return `<div class="document-record">${lines}</div>`;
       }
+      const revisionMatch = text.match(/^\[\[revision:(version|later)\]\]\n([\s\S]+)\n\[\[\/revision\]\]$/);
+      if (revisionMatch) {
+        const lines = revisionMatch[2].split('\n');
+        const title = renderInline(lines.shift() || '');
+        const body = lines.map((line) => {
+          if (line.startsWith('META|')) return `<span class="revision-meta">${renderInline(line.slice(5))}</span>`;
+          if (line.startsWith('DEL|')) return `<span class="revision-deleted">${renderInline(line.slice(4))}</span>`;
+          if (line.startsWith('NOTE|')) return `<span class="revision-note">${renderInline(line.slice(5))}</span>`;
+          if (line.startsWith('ADD|')) return `<span class="revision-replacement">${renderInline(line.slice(4))}</span>`;
+          return `<span class="revision-line">${renderInline(line)}</span>`;
+        }).join('');
+        return `<section class="revision-record revision-record--${revisionMatch[1]}"><div class="revision-heading">${title}</div>${body}</section>`;
+      }
       if (text.startsWith('# ')) return `<h1>${renderInline(text.slice(2))}</h1>`;
       if (text.startsWith('> ')) return `<p class="placeholder-note">${renderInline(text.slice(2))}</p>`;
       return `<p>${renderInline(text).replace(/\n/g, '<br>')}</p>`;

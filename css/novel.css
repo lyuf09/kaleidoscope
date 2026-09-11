@@ -192,6 +192,50 @@ html { overflow-x: clip; }
   display: block;
   white-space: pre-wrap;
 }
+.reader-content .revision-record {
+  margin: 2.8rem 0 3rem;
+  padding: 1.35rem 1.45rem 1.5rem;
+  border-block: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  color: var(--ink-soft);
+  font: 400 .78rem/1.85 var(--mono);
+  letter-spacing: .045em;
+}
+.reader-content .revision-record--later {
+  padding: 1.2rem 1.35rem;
+  border-block: 0;
+  border-left: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  background: color-mix(in srgb, var(--paper-deep) 52%, transparent);
+}
+.reader-content .revision-heading {
+  margin-bottom: .2rem;
+  color: var(--ink);
+  font-size: .75rem;
+  letter-spacing: .14em;
+}
+.reader-content .revision-record span { display: block; }
+.reader-content .revision-meta {
+  color: color-mix(in srgb, var(--ink-soft) 70%, transparent);
+  font-size: .75rem;
+  letter-spacing: .08em;
+}
+.reader-content .revision-meta + .revision-line { margin-top: 1rem; }
+.reader-content .revision-deleted {
+  margin-top: .65rem;
+  opacity: .46;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.reader-content .revision-note {
+  opacity: .42;
+  font-size: .75rem;
+  letter-spacing: .09em;
+  text-transform: lowercase;
+}
+.reader-content .revision-replacement {
+  margin-top: .12rem;
+  font-size: .75rem;
+}
+.reader-content .revision-record--later .revision-meta + .revision-line { margin-top: .8rem; }
 .reader-content .placeholder-note {
   margin: 3rem 0;
   padding-left: 1rem;
