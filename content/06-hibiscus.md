@@ -45,10 +45,6 @@ ADD|算了。
 
 我切换了一次修订记录。
 
-有些句子消失了。
-
-有些句子直到后来才出现。
-
 [[revision:later]]
 LATER REVISION
 META|Added after 18 AUG
