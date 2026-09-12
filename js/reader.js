@@ -24,8 +24,8 @@ const chapterVisuals = {
   },
   'winter-beds': {
     src: '../assets/images/winter-trial-beds.jpg',
-    alt: 'Empty-looking winter nursery beds with B03, B04, and B05 markers',
-    label: 'RECORD 09 / RENA WINTER INVENTORY'
+    alt: 'Late-winter nursery beds B03, B04, and B05; a leafless woody hibiscus stands in B04 while the neighboring lily beds are bare above ground',
+    label: '冬季盘点中的B04：C株已经落叶，但地上枝条仍然存在；相邻百合床位看似空置，鳞茎在地下休眠。'
   },
   'condition-survey': {
     src: '../assets/images/condition-survey.jpg',
