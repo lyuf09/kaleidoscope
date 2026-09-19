@@ -45,7 +45,8 @@ function renderMarkdown(markdown) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/\\\*/g, '*')
-    .replace(/\*\*(.+?)\*\*/g, '$1');
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>');
 
   return markdown
     .split(/\n{2,}/)
