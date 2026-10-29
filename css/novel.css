@@ -85,6 +85,13 @@ html[lang="zh-Hans"] .book-kind {
   gap: 2rem;
   margin-bottom: clamp(4rem, 8vw, 7rem);
 }
+.novel-synopsis {
+  grid-column: 2;
+  max-width: 36rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font: 400 clamp(.95rem, 1.4vw, 1.1rem)/1.85 var(--serif);
+}
 .chapter-table { border-top: 1px solid var(--line); }
 .chapter-table > a,
 .chapter-table > div {
@@ -309,6 +316,7 @@ html { overflow-x: clip; }
   .book-title { max-width: 72%; }
   .novel-strip { right: var(--gutter); width: 22vw; opacity: .2; }
   .directory-head { grid-template-columns: 1fr; }
+  .novel-synopsis { grid-column: 1; }
   .language-note { margin: -2rem 0 2.5rem; }
   .chapter-table > a,
   .chapter-table > div { grid-template-columns: 2.5rem 1fr auto; gap: .8rem; }

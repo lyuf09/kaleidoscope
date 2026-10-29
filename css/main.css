@@ -525,11 +525,28 @@ button { color: inherit; }
 .archive-card--corridor { grid-column: span 5; }
 .archive-card--label { grid-column: span 3; }
 .archive-card--beds { grid-column: span 4; }
-.archive-card--survey { grid-column: span 5; min-height: 31rem; }
+.archive-card--survey { grid-column: 1 / -1; min-height: 31rem; }
 .archive-card--raw { grid-column: span 3; min-height: 31rem; }
 .archive-card--entry { grid-column: span 5; }
 .archive-card--ingest { grid-column: span 7; }
 .archive-card--marks { grid-column: 1 / -1; min-height: 19rem; }
+.archive-evidence { grid-column: 1 / -1; background: var(--paper-soft); }
+.archive-evidence summary {
+  padding: 1.5rem;
+  color: var(--ink-soft);
+  font: 400 .78rem/1.8 var(--sans);
+  letter-spacing: .04em;
+  cursor: pointer;
+}
+.archive-evidence[open] summary { border-bottom: 1px solid var(--line); }
+.archive-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+.archive-evidence:not([open]) .archive-evidence-grid { display: none; }
+.archive-evidence-grid .archive-card { grid-column: auto; min-height: 26rem; }
 .archive-card figure {
   min-height: 0;
   margin: 0;
@@ -652,6 +669,7 @@ button { color: inherit; }
   .track-fragment-08 { width: 76vw; height: 31%; opacity: .13; }
   .track-fragment-09 { width: 78vw; height: 31%; opacity: .28; }
   .archive-grid { grid-template-columns: 1fr; }
+  .archive-evidence-grid { grid-template-columns: 1fr; }
   .archive-card,
   .archive-card--cover,
   .archive-card--mesh,

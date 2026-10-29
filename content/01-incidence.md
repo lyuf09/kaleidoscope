@@ -245,6 +245,12 @@ PRE-INTERVENTION IMG. — PENDING
 
 后面跟着一个箭头和照片编号。
 
+页脚还有一行小字，贴着裁切过的纸边：
+
+[[record]]
+UG-03–05 / BEFORE 18 AUG 08:00
+[[/record]]
+
 最下面签着Rui的名字。
 
 我把纸翻过去，盖在照片索引上。
