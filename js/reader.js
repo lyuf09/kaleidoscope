@@ -20,12 +20,12 @@ const chapterVisuals = {
   'h17-label': {
     src: '../assets/images/h17-label.jpg',
     alt: 'A weathered plant label marked WGH H17 with a partial accession number',
-    label: 'RECORD 08 / LOCATION ≠ INDIVIDUAL'
+    label: 'RECORD 08 / WGH H17'
   },
   'winter-beds': {
     src: '../assets/images/winter-trial-beds.jpg',
     alt: 'Late-winter nursery beds B03, B04, and B05; a leafless woody hibiscus stands in B04 while the neighboring lily beds are bare above ground',
-    label: '冬季盘点中的B04：C株已经落叶，但地上枝条仍然存在；相邻百合床位看似空置，鳞茎在地下休眠。'
+    label: '冬季盘点 / B03–B05'
   },
   'condition-survey': {
     src: '../assets/images/condition-survey.jpg',
